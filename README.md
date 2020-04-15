@@ -21,3 +21,7 @@ Request Body will be a JSON containing id, current_price.
 	1. Call made to Controller for Put product
 	2. Call made to MongoDB to put Price
 	3. Return success of Response
+
+Application is made with SpringBoot and uses MongoDB Atlas as it's NoSQL DB.
+Application is going to be put in a docker container and run on Google Cloud Compute Engine.
+It will then be exposed via a load balancer.
