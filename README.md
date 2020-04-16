@@ -25,3 +25,8 @@ Request Body will be a JSON containing id, current_price.
 Application is made with SpringBoot and uses MongoDB Atlas as it's NoSQL DB.
 Application is going to be put in a docker container and run on Google Cloud Compute Engine.
 It will then be exposed via a load balancer.
+
+You can download Docker image 
+
+You can access the application at https://my-retail-srtleap7qq-ue.a.run.app
+With Get/Put Requests at https://my-retail-srtleap7qq-ue.a.run.app/products/{id}
