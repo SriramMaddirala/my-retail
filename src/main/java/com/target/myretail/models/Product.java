@@ -9,10 +9,9 @@ import java.util.HashMap;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
     private String name;
-    private String id;
+    private final String id;
     private String value;
     private String currencyCode;
-    private JsonNode item;
     private String[] symbols = new String[]{"$", "CA$", "€", "AED", "Af", "ALL", "AMD",
             "AR$", "AU$", "man.", "KM", "Tk", "BGN", "BD", "FBu", "BN$", "Bs", "R$",
             "BWP", "Br", "BZ$", "CDF", "CHF", "CL$", "CN¥", "CO$", "₡", "CV$", "Kč",
@@ -51,7 +50,6 @@ public class Product {
     }
 
     public void parseProduct(JsonNode node){
-        this.item = node;
         if(value == null){
             String price = node.get("product").get("price").get("offerPrice").get("formattedPrice").asText();
             String currency = price.substring(0,1);
