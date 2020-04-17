@@ -49,3 +49,19 @@ The application should also specific error mappings for
 	2. 404 error
 	3. Invalid credentials
 And a general catch all error mapping
+
+Also if I a get request for a price which isn't in our DB then once we bring the Price down from the external api
+we put that value and currency Code into our DB.
+
+Swagger API documentation
+
+API Health checks
+
+Scaling it to Production:
+
+Loggers for errors are a good idea.
+Currently I am just utilizing error reporting through my Google Cloud dashboard
+
+If we just look at movies, the distribution of searches about movies follows the power law (i.e. a change in one quantity has a proportional relative change in the quantity of the other). So it follows that the majority of searches about movies will be about a minority of movies. 
+In fact in a more general sense popularity in products is distributed via the power law and storing this means that a caching solution would be recommended. 
+Product popularity also is mostly time dependent as cult hits and fads are common reality while certain products like toilet paper are going to have consistent interest over time. This means that a least recently used cache eviction policy would be a good fit. Redis and Memcached are very popular caching solutions for this purpose.
