@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
+    private boolean isPriceFromDB = true;
     private String name;
     private final String id;
     private String value;
@@ -51,6 +52,7 @@ public class Product {
 
     public void parseProduct(JsonNode node){
         if(value == null){
+            isPriceFromDB = false;
             String price = node.get("product").get("price").get("offerPrice").get("formattedPrice").asText();
             String currency = price.substring(0,1);
             this.value = price.substring(1);
@@ -67,5 +69,13 @@ public class Product {
     public void setPrices(Prices prices){
         this.value = prices.getValue();
         this.currencyCode = prices.getCurrencyCode();
+    }
+
+    public Prices getPrices(){
+        return new Prices(id,value,currencyCode);
+    }
+
+    public boolean isPriceFromDB() {
+        return isPriceFromDB;
     }
 }
