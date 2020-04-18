@@ -41,15 +41,11 @@ public class MyRetailController {
     public JsonNode getPrice(@PathVariable("id") String id) {
         Product product = new Product(id);
         Optional<Prices> byId = repository.findById(id);
-        // If Product price is present in the DB, let's put that into the response.
         byId.ifPresent(product::setPrices);
         String url = "https://redsky.target.com/v2/pdp/tcin/"+ id +"?excludes=taxonomy,promotion,available_to_promise_network,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
         JsonNode rawProduct = restTemplate.getForObject(url,JsonNode.class);
-        // If product price isn't in the DB, let's get the price from the external API
-        // as there is a one-to-one mapping between products and prices.
         product.parseProduct(rawProduct);
         if(!product.isPriceFromDB()){
-            // If product price isn't in the DB, let's put it there.
             repository.save(product.getPrices());
         }
         return product.getJson();
