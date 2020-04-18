@@ -1,8 +1,12 @@
 # myRetail
 
-Get Request:
+<h1> Live Server <h1>
+https://my-retail-srtleap7qq-ue.a.run.app/
+
+Get Request Route:
 
 Call {url}/products/{id}
+
 Returns JSON, example: {"id" : 1384608, "name" : "Big Leb(Blu Ray)(WideScreen)", "current_price" : {"value": 13.49,"currency_code":"USD"}}
 "name" is stored at http://redsky.target.com/v2/pdp/tcin/"13860428".
 "price" needs to be stored in a noSQL data store so routing can be:
