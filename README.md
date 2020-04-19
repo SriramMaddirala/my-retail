@@ -1,9 +1,26 @@
 # myRetail
 
-<h1> Live Server </h1>
+<h3> Live Server: </h3>
+
 https://my-retail-srtleap7qq-ue.a.run.app/
 
-Get Request Route:
+Technologies Used:
+Spring Boot
+MongoDB
+Target Redsky API
+Docker
+Google Cloud Run
+Mockito
+
+Get Request Working Examples:
+https://my-retail-srtleap7qq-ue.a.run.app/products/13860428
+https://my-retail-srtleap7qq-ue.a.run.app/products/52091946
+https://my-retail-srtleap7qq-ue.a.run.app/products/14756360
+https://my-retail-srtleap7qq-ue.a.run.app/products/13860429
+https://my-retail-srtleap7qq-ue.a.run.app/products/50939781
+
+
+Get Request Route: 
 
 Call {url}/products/{id}
 
