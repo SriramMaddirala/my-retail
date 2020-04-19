@@ -13,6 +13,7 @@ Google Cloud Run
 Mockito
 
 Get Request Working Examples:
+
 https://my-retail-srtleap7qq-ue.a.run.app/products/13860428
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/52091946
@@ -22,6 +23,16 @@ https://my-retail-srtleap7qq-ue.a.run.app/products/14756360
 https://my-retail-srtleap7qq-ue.a.run.app/products/13860429
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/50939781
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/52997343
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/51004752
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/53256681
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/51143245
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/51301099
 
 
 Get Request Route: 
