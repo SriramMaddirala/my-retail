@@ -126,4 +126,4 @@ I used Docker as I needed a way to run my application in a portable, reproducibl
 
 I used Spring Boot as it is the industry standard for making applications in java and it really makes development very easy.
 
-Google Cloud Run is a fully managed serverless platform for containers I thought it was a good choice for this POC as it allowed me to abstract out all the infrastructure management that would not have been useful for this .
+Google Cloud Run is a fully managed serverless platform for containers I thought it was a good choice for this POC as it allowed me to abstract out all the infrastructure management that would not have been useful.
