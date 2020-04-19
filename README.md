@@ -4,15 +4,24 @@
 
 https://my-retail-srtleap7qq-ue.a.run.app/
 
+About page at https://my-retail-srtleap7qq-ue.a.run.app/about
+
 Technologies Used:
+
 Spring Boot
+
 MongoDB
+
 Target Redsky API
+
 Docker
+
 Google Cloud Run
+
 Mockito
 
-Get Request Working Examples:
+
+Valid urls to which one could send Get/Put Requests:
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/13860428
 
@@ -34,20 +43,41 @@ https://my-retail-srtleap7qq-ue.a.run.app/products/51143245
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/51301099
 
+https://my-retail-srtleap7qq-ue.a.run.app/products/16696652
 
-Get Request Route: 
+https://my-retail-srtleap7qq-ue.a.run.app/products/53334446
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/53211599
+
+https://my-retail-srtleap7qq-ue.a.run.app/products/52946420
+
+Running Local Instance:
+
+To pull and run the corresponding Docker image for this application at localhost 5000 run: 
+"docker run -p 5000:8080 maddi011/my-retail:0.0.1-SNAPSHOT" from your terminal
+You can check that the service is up locally via http://localhost:5000/actuator/health
+
+To call the Get Request Route: 
 
 Call {url}/products/{id}
 
-Returns JSON, example: {"id" : 1384608, "name" : "Big Leb(Blu Ray)(WideScreen)", "current_price" : {"value": 13.49,"currency_code":"USD"}}
+It returns JSON, example: {"id" : 1384608, "name" : "Big Leb(Blu Ray)(WideScreen)", "current_price" : {"value": 13.49,"currency_code":"USD"}}
+
+
 "name" is stored at http://redsky.target.com/v2/pdp/tcin/"13860428".
-"price" needs to be stored in a noSQL data store so routing can be:
-	1. call made to controller for get product
-	2. call made to MongoDB for price
-		3a. If no price in MongoDB then make a call to target API and get the name and price.
-			4a. Then put in the "name":"price" into MongoDB for future use.
-		3b. If price is in MongoDB then make a call to target api to get the name.
-	 4. Combine Price and Name into a JSON and return it.
+
+Price details need to be stored in a noSQL data store so routing is:
+
+	1. call made to MongoDB for price details
+	
+		2a. If no price in MongoDB then make a call to target API and get the name and price.
+		
+			3a. Then put in the price into MongoDB for future use.
+			
+		2b. If price is in MongoDB then make a call to target api to get the name.
+		
+	4. Combine Price and Name into a JSON and return it.
+
 
 Put Request:
 
