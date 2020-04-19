@@ -6,7 +6,7 @@ https://my-retail-srtleap7qq-ue.a.run.app/
 
 About page at https://my-retail-srtleap7qq-ue.a.run.app/about
 
-Technologies Used:
+<h3>Technologies Used:</h3>
 
 Spring Boot
 
@@ -21,7 +21,7 @@ Google Cloud Run
 Mockito
 
 
-Valid urls to which one could send Get/Put Requests:
+<h3>Valid urls to which one could send Get/Put Requests:</h3>
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/13860428
 
@@ -51,10 +51,11 @@ https://my-retail-srtleap7qq-ue.a.run.app/products/53211599
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/52946420
 
-Running Local Instance:
+<h3>Running Local Instance:</h3>
 
 To pull and run the corresponding Docker image for this application at localhost 5000 run: 
 "docker run -p 5000:8080 maddi011/my-retail:0.0.1-SNAPSHOT" from your terminal
+
 You can check that the service is up locally via http://localhost:5000/actuator/health
 
 <h1> Design notes: </h1>
