@@ -58,8 +58,6 @@ To pull and run the corresponding Docker image for this application at localhost
 
 You can check that the service is up locally via http://localhost:5000/actuator/health
 
-<h1> Design notes: </h1>
-
 <h2> Get Request Route: </h2>
 
 Call {url}/products/{id}
@@ -87,12 +85,12 @@ Price details need to be stored in a noSQL data store so routing is:
 Call {url}/products/{id}
 
 Request Body is a JSON containing id, current_price.
+
 	1. Call made to MongoDB to put Price
+	
 	2. Return the object updated into DB
 
-Application is made with SpringBoot and uses MongoDB Atlas as it's NoSQL DB.
-Application is put in a docker container and run on Google Cloud Run.
-
+<h3> Design notes: </h3>
 
 Having no security around the GET/PUT requests is not acceptable. In production code we'd have JWT tokens to handle authorization.
 But as it's a little overkill to have to generate JWT tokens to access the API we'll simply have basic Auth which would require Username/Password.
@@ -110,6 +108,10 @@ The application should probably have an about page that explains who and why thi
 
 Also if I get a request for a price which isn't in our DB then once we bring the Price down from the external api
 we put that value and currency Code into our DB.
+
+Application is made with SpringBoot and uses MongoDB Atlas as it's NoSQL DB.
+
+Application is put in a docker container and run on Google Cloud Run.
 
 MongoDB was used as MongoDB works by storing documents which are readily mappable to JSON nodes. Also MongoDB Atlas doesn't require any changes to be scaled up as more shards can easily be added to your cluster. 
 
