@@ -35,21 +35,13 @@ https://my-retail-srtleap7qq-ue.a.run.app/products/50939781
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/52997343
 
-https://my-retail-srtleap7qq-ue.a.run.app/products/51004752
-
 https://my-retail-srtleap7qq-ue.a.run.app/products/53256681
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/51143245
 
 https://my-retail-srtleap7qq-ue.a.run.app/products/51301099
 
-https://my-retail-srtleap7qq-ue.a.run.app/products/16696652
-
 https://my-retail-srtleap7qq-ue.a.run.app/products/53334446
-
-https://my-retail-srtleap7qq-ue.a.run.app/products/53211599
-
-https://my-retail-srtleap7qq-ue.a.run.app/products/52946420
 
 <h3>Running Local Instance:</h3>
 
