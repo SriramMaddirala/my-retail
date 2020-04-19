@@ -122,8 +122,8 @@ This means that a least recently used cache eviction policy would be a good fit.
 
 MongoDB was used as MongoDB works by storing documents which are readily mappable to JSON nodes. Also MongoDB Atlas doesn't require any changes to be scaled up as more shards can easily be added to your cluster. 
 
-I used Docker as I needed a way to run my application in a portable, reproducible way that I could deploy while minimizing the specific issues that could come due to various environmental issue.
+I used Docker as I needed a way to run my application in a portable, reproducible way that I could deploy while minimizing the specific issues that could come due to various environmental issue and put simply I want my service to develop once, run anywhere.
 
-I used Spring Boot as it is the industry standard for making applications in java.
+I used Spring Boot as it is the industry standard for making applications in java and it really makes development very easy.
 
 Google Cloud Run is a fully managed serverless platform for containers I thought it was a good choice for this POC as it allowed me to abstract out all the infrastructure management that would not have been useful for this .
