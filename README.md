@@ -57,9 +57,9 @@ To pull and run the corresponding Docker image for this application at localhost
 "docker run -p 5000:8080 maddi011/my-retail:0.0.1-SNAPSHOT" from your terminal
 You can check that the service is up locally via http://localhost:5000/actuator/health
 
-<h2> Design notes: </h2>
+<h1> Design notes: </h1>
 
-To call the Get Request Route: 
+<h2> Get Request Route: </h2>
 
 Call {url}/products/{id}
 
@@ -81,7 +81,7 @@ Price details need to be stored in a noSQL data store so routing is:
 	4. Combine Price and Name into a JSON and return it.
 
 
-Update Request:
+<h2>Update Request:</h2>
 
 Call {url}/products/{id}
 
