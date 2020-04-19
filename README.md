@@ -107,7 +107,7 @@ Unit tests serve as documentation as well as validation so we'll unit test the b
 
 The application should probably have an about page that explains who and why this api exists.
 
-Also if I a get request for a price which isn't in our DB then once we bring the Price down from the external api
+Also if I get a request for a price which isn't in our DB then once we bring the Price down from the external api
 we put that value and currency Code into our DB.
 
 MongoDB was used as MongoDB works by storing documents which are readily mappable to JSON nodes. Also MongoDB Atlas doesn't require any changes to be scaled up as more shards can easily be added to your cluster. 
