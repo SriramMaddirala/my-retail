@@ -57,6 +57,8 @@ To pull and run the corresponding Docker image for this application at localhost
 "docker run -p 5000:8080 maddi011/my-retail:0.0.1-SNAPSHOT" from your terminal
 You can check that the service is up locally via http://localhost:5000/actuator/health
 
+<h2> Design notes: </h2>
+
 To call the Get Request Route: 
 
 Call {url}/products/{id}
@@ -79,50 +81,36 @@ Price details need to be stored in a noSQL data store so routing is:
 	4. Combine Price and Name into a JSON and return it.
 
 
-Put Request:
+Update Request:
 
 Call {url}/products/{id}
 
-Request Body will be a JSON containing id, current_price.
-	1. Call made to Controller for Put product
-	2. Call made to MongoDB to put Price
-	3. Return success of Response
+Request Body is a JSON containing id, current_price.
+	1. Call made to MongoDB to put Price
+	2. Return the object updated into DB
 
 Application is made with SpringBoot and uses MongoDB Atlas as it's NoSQL DB.
 Application is put in a docker container and run on Google Cloud Run.
 
-You can download Docker image 
-with docker run -p 5000:8080 maddi011/my-retail:0.0.1-SNAPSHOT
 
-You can access the application at https://my-retail-srtleap7qq-ue.a.run.app
-With Get/Put Requests at https://my-retail-srtleap7qq-ue.a.run.app/products/{id}
+Having no security around the GET/PUT requests is not acceptable. In production code we'd have JWT tokens to handle authorization.
+But as it's a little overkill to have to generate JWT tokens to access the API we'll simply have basic Auth which would require Username/Password.
 
-TODO:
+Having the PUT request exposed means that anybody would get access to the Database which is an issue and furthermore because getting a DB miss on prices would trigger a put from the external API this means it would also be useful to require authorization for the GET method.
+Maybe this API needs to be a service that is to be paid for so adding basic authorization makes sense. 
 
-There is no security around the GET/PUT requests. In production code we'd have JWT tokens to handle authorization.
-But as this is it's a little overkill to have to generate JWT tokens to access the API we'll have the following security design.
-Having the PUT request exposed means that anybody would get access to the Database which is an issue.
-And furthermore because getting a DB miss on prices would trigger a put from the external API this means it would also be useful to require authorization for the GET method.
-And maybe this API needs to be a service that is to be paid for so adding basic authorization makes sense. 
 So let's keep access to those who use the following Credentials:
 Username: target
 Password: target
 
-Unit tests serve as documentation as well as validation so we'll unit test the behavior of the controllers and the models.
+Unit tests serve as documentation as well as validation so we'll unit test the behavior of the controller and the product model.
 
 The application should probably have an about page that explains who and why this api exists.
-The application should also specific error mappings for 
-	1. No data exists at this product mapping
-	2. 404 error
-	3. Invalid credentials
-And a general catch all error mapping
 
 Also if I a get request for a price which isn't in our DB then once we bring the Price down from the external api
 we put that value and currency Code into our DB.
 
-API Health checks
-
-Scaling it to Production:
+<h3> Scaling it to Production: </h3>
 
 Loggers for errors are a good idea.
 Currently I am just utilizing error reporting through my Google Cloud dashboard
@@ -132,9 +120,10 @@ In fact in a more general sense popularity in products is distributed via the po
 Product popularity also is mostly time dependent as cult hits and fads are common reality while certain products like toilet paper are going to have consistent interest over time. 
 This means that a least recently used cache eviction policy would be a good fit. Redis and Memcached are very popular caching solutions for this purpose.
 
-Explain why MongoDB was used.
-Same for Google Cloud Run
-Docker
-Spring Boot
+MongoDB was used as MongoDB works by storing documents which are readily mappable to JSON nodes. Also MongoDB Atlas doesn't require any changes to be scaled up as more shards can easily be added to your cluster. 
+
+I used Docker as I needed a way to run my application in a portable, reproducible way that I could deploy while minimizing the specific issues that could come due to various environmental issue.
+
+I used Spring Boot as it is the industry standard for making applications in java.
 
 Google Cloud Run is a fully managed serverless platform for containers I thought it was a good choice for this POC as it allowed me to abstract out all the infrastructure management that would not have been useful for this .
